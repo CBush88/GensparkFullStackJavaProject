@@ -38,7 +38,12 @@ const UpdateBook = ({ bookToUpdate }) => {
                 <br />
                 <label htmlFor="binding">Binding</label>
                 <br />
-                <input type="text" name="bookBinding" id="binding" required={true} placeholder="Binding" value={updatedBook.bookBinding} onChange={handleChanges} />
+                <select name='bookBinding' id='binding' onChange={handleChanges}>
+                    <option value="Hard-Back">Hard-Back</option>
+                    <option value="Paper-Back">Paper-Back</option>
+                    <option value="Spiral-Back">Spiral-Back</option>
+                    <option value="Loose-Leaf">Loose-Leaf</option>
+                </select>                
                 <br />
                 <label htmlFor="price">Price</label>
                 <br />
