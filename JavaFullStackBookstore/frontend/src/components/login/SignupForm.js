@@ -12,7 +12,7 @@ const SignupForm = ({ getUsers }) => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    if(validPassword()){
+    if (validPassword()) {
       const username = usernameInputRef.current.value;
       const password = passwordInputRef.current.value;
       const hashed = bcrypt.hashSync(password, 10);
@@ -26,23 +26,24 @@ const SignupForm = ({ getUsers }) => {
   }
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor='username'>Username </label>
+    <div className="d-flex justify-content-center mt-3">
+      <form onSubmit={handleSubmit} className="d-flex flex-column align-items-start w-25">
+        <h1 className="border-bottom border-dark border-2 pb-3">Sign Up Below:</h1>
+        <label htmlFor='username' className="form-label label">Username </label>
         <br />
-        <input type="text" name="username" id="username" required={true} ref={usernameInputRef} />
+        <input type="text" name="username" id="username" required={true} ref={usernameInputRef} className="form-control-lg" />
         <br />
-        <label htmlFor='password'>Password</label>
+        <label htmlFor='password' className="form-label label">Password</label>
         <br />
-        <input type="password" name="password" id="password" minLength={8} required={true} ref={passwordInputRef} />
+        <input type="password" name="password" id="password" minLength={8} required={true} ref={passwordInputRef} className="form-control-lg" />
         <br />
-        <label htmlFor='repeatPassword'>Repeat Password</label>
+        <label htmlFor='repeatPassword' className="form-label label">Repeat Password</label>
         <br />
-        <input type="password" name="repeatPassword" id="repeatPassword" required={true} />
+        <input type="password" name="repeatPassword" id="repeatPassword" required={true} className="form-control-lg" />
         <br />
-        <label id="errLabel"></label>
+        <label id="errLabel" className="form-label label"></label>
         <br />
-        <button type="submit">Sign Up</button>
+        <button type="submit" className="btn btn-primary mt-3">Sign Up</button>
       </form>
     </div>
   )

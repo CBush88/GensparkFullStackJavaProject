@@ -23,8 +23,8 @@ const Book = (props) => {
       <td>{bookBinding}</td>
       <td>{bookPrice}</td>
       <td style={{ width: "11em" }}>
-        <Link to="/update" onClick={updateButton}><button>Update</button></Link>
-        <button onClick={deleteAndRefresh}>Delete</button>
+        <Link to="/update" onClick={updateButton}><button type="button" className="btn btn-secondary btn-sm me-2">Update</button></Link>
+        <button type="button" onClick={deleteAndRefresh} className="btn btn-secondary btn-sm">Delete</button>
       </td>
     </>
   );

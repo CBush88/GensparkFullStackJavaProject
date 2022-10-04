@@ -74,7 +74,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <Header loggedIn={loggedIn} />
+      <Header setLoggedIn={setLoggedIn} loggedIn={loggedIn} />
       <div className="container">
         <Routes>
           <Route exact path="/" element={<Home />} />
