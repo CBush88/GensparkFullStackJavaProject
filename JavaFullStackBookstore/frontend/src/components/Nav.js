@@ -15,9 +15,9 @@ const Nav = () => {
           <Link className="nav-link" to="#">Contact Us</Link>
         </li>
       </ul>
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="/">Sign Out</a>
+      <ul className="navbar-nav ms-auto">
+        <li className="nav-item">
+          <a className="nav-link" href="/">Sign Out</a>
         </li>
       </ul>
     </nav>
