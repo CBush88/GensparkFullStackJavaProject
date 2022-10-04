@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { createBook } from '../../service/BooksDataService'
+import { validGenre, validPrice } from '../../service/ValidationService';
 
 const initialState = {
     "bookTitle": "",
@@ -16,10 +17,11 @@ const AddBook = () => {
 
     const onSubmit = (e) => {
         e.preventDefault();
-
+        if(validGenre() && validPrice()){
         createBook(bookToAdd)
             .then(() => setBookToAdd(initialState))
             .then(() => navigate("/"));
+        }
     }
 
     const handleChanges = (e) => {
@@ -49,6 +51,8 @@ const AddBook = () => {
                 <label htmlFor="price">Price</label>
                 <br />
                 <input type="text" name="bookPrice" id="price" required={true} placeholder="Price" onChange={handleChanges} />
+                <br />
+                <label style={{display:"hidden"}} id="errLabel"></label>
                 <br />
                 <button style={{ width: "auto" }} type="submit">Add book</button>
             </form>
