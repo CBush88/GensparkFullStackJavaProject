@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import { createUser } from '../../service/UsersDataService';
 import { useNavigate } from 'react-router-dom';
 import bcrypt from "bcryptjs";
-import validPassword from './ValidatePassword';
+import { validPassword } from '../../service/ValidationService';
 
 const SignupForm = ({ getUsers }) => {
   const usernameInputRef = useRef("");

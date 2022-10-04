@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { updateBook } from '../../service/BooksDataService'
+import { validGenre, validPrice } from '../../service/ValidationService';
 
 const UpdateBook = ({ bookToUpdate }) => {
     const [updatedBook, setUpdatedBook] = useState(bookToUpdate);
@@ -9,9 +10,10 @@ const UpdateBook = ({ bookToUpdate }) => {
 
     const onSubmit = (e) => {
         e.preventDefault();
-
+        if(validGenre() && validPrice()){
         updateBook(updatedBook)
             .then(() => navigate("/inventory"));
+        }
     }
 
     const handleChanges = (e) => {
@@ -41,6 +43,8 @@ const UpdateBook = ({ bookToUpdate }) => {
                 <label htmlFor="price">Price</label>
                 <br />
                 <input type="text" name="bookPrice" id="price" required={true} placeholder="Price" value={updatedBook.bookPrice} onChange={handleChanges} />
+                <br />
+                <label id='errLabel'></label>
                 <br />
                 <button style={{ width: "auto" }} type="submit">Update book</button>
             </form>
