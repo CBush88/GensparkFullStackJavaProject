@@ -21,6 +21,7 @@ const AddBook = () => {
         createBook(bookToAdd)
             .then(() => setBookToAdd(initialState))
             .then(() => navigate("/inventory"));
+        }
     }
 
     const handleChanges = (e) => {
@@ -58,6 +59,6 @@ const AddBook = () => {
             <Link to="/">Go back</Link>
         </div>
     )
-}
+};
 
-export default AddBook
+export default AddBook;
