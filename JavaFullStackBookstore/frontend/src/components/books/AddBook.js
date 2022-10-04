@@ -20,8 +20,7 @@ const AddBook = () => {
         if(validGenre() && validPrice()){
         createBook(bookToAdd)
             .then(() => setBookToAdd(initialState))
-            .then(() => navigate("/"));
-        }
+            .then(() => navigate("/inventory"));
     }
 
     const handleChanges = (e) => {
