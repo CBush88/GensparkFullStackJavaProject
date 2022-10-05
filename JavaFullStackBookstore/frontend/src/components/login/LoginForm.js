@@ -29,6 +29,7 @@ const LoginForm = ({ setUserAttempt, userAttempt, getUsers, authenticate }) => {
             </form>
             <div className="ms-1">
                 <Link to="/signup" className="">Sign up</Link>
+                <br />
             </div>
         </div>
     )
