@@ -13,9 +13,9 @@ const Footer = () => {
             <Link className="nav-link" to="#">Contact Us</Link>
           </li>
         </ul>
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <Link class="nav-link disabled" to="#">Copyright ©2022</Link>
+        <ul className="navbar-nav ms-auto">
+          <li className="nav-item">
+            <Link className="nav-link disabled" to="#">Copyright ©2022</Link>
           </li>
         </ul>
       </nav>

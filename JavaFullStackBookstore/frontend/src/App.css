@@ -40,3 +40,7 @@ body {
 .header-nav {
   background-color: #490e01;
 }
+
+.container {
+  margin-bottom: 4.5%;
+}
