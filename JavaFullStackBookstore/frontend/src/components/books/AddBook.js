@@ -47,7 +47,7 @@ const AddBook = () => {
                     <br />
                     <label htmlFor="binding" className="form-label label">Binding</label>
                     <br />
-                    <select name='bookBinding' id='binding' required onChange={handleChanges} className="form-select form-control-lg">
+                    <select name='bookBinding' id='binding' required={true} onChange={handleChanges} className="form-select form-control-lg">
                         <option value="" disabled selected>Select a Binding</option>
                         <option value="Paper-Back">Paper-Back</option>
                         <option value="Hard-Back">Hard-Back</option>
