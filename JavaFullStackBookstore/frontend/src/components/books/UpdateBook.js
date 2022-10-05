@@ -39,9 +39,9 @@ const UpdateBook = ({ bookToUpdate }) => {
                     <br />
                     <label htmlFor="binding" className="form-label label">Binding</label>
                     <br />
-                    <select name='bookBinding' id='binding' onChange={handleChanges} className="form-select">
-                        <option value="Hard-Back">Hard-Back</option>
+                    <select name='bookBinding' id='binding' value={updatedBook.bookBinding} onChange={handleChanges} className="form-select form-control-lg">
                         <option value="Paper-Back">Paper-Back</option>
+                        <option value="Hard-Back">Hard-Back</option>
                         <option value="Spiral-Back">Spiral-Back</option>
                         <option value="Loose-Leaf">Loose-Leaf</option>
                     </select>
