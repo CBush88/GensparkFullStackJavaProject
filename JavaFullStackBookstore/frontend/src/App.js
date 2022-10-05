@@ -57,14 +57,16 @@ const App = () => {
   if (!loggedIn) {
     return (
       <div className="App">
+        <Header loggedIn={loggedIn} />
         <div className="container">
-          <Header loggedIn={loggedIn} />
           <Routes>
             <Route exact path="/" element={<LandingPage getUsers={getUsers} setUserAttempt={setUserAttempt} userAttempt={userAttempt} authenticate={authenticate} />} />
             <Route path="/login" element={<LoginForm getUsers={getUsers} setUserAttempt={setUserAttempt} userAttempt={userAttempt} authenticate={authenticate} />} />
             <Route path="/signup" element={<SignupForm getUsers={getUsers} />} />
           </Routes>
-          <Footer />
+          <div className="footer">
+            <Footer />
+          </div>
         </div>
       </div>
     )
@@ -72,15 +74,17 @@ const App = () => {
 
   return (
     <div className="App">
+      <Header setLoggedIn={setLoggedIn} loggedIn={loggedIn} />
       <div className="container">
-        <Header loggedIn={loggedIn} />
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route path="/inventory" element={<BookInventory books={books} getBooks={getBooks} setBooks={setBooks} setBookToUpdate={setBookToUpdate} />} />
           <Route path="/add" element={<AddBook />} />
           <Route path="/update" element={<UpdateBook bookToUpdate={bookToUpdate} />} />
         </Routes>
-        <AltFooter />
+        <div className="footer">
+          <AltFooter />
+        </div>
       </div>
     </div>
   );

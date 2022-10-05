@@ -2,11 +2,11 @@ import React from 'react'
 import Nav from './Nav'
 import Banner from './Banner'
 
-const Header = ({ loggedIn }) => {
+const Header = ({ setLoggedIn, loggedIn }) => {
   return (
     <div>
       {loggedIn ?
-        <Nav /> : <Banner />}
+        <Nav setLoggedIn={setLoggedIn} /> : <Banner />}
     </div>
   )
 }
