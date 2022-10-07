@@ -16,18 +16,21 @@ const LoginForm = ({ setUserAttempt, userAttempt, getUsers, authenticate }) => {
 
     return (
         <div>
-            <form onSubmit={authenticate}>
-                <label htmlFor='username'>Username </label>
+            <form onSubmit={authenticate} className="d-flex flex-column align-items-start w-25">
+                <label htmlFor='username' className="form-label label">Username </label>
                 <br />
-                <input type="text" name="username" id="username" required={true} onChange={handleChanges} />
+                <input type="text" name="username" id="username" required={true} onChange={handleChanges} className="form-control-lg" />
                 <br />
-                <label htmlFor='password'>Password</label>
+                <label htmlFor='password' className="form-label label">Password</label>
                 <br />
-                <input type="password" name="password" id="password" required={true} onChange={handleChanges} />
+                <input type="password" name="password" id="password" required={true} onChange={handleChanges} className="form-control-lg" />
                 <br />
-                <button type="submit">Log In</button>
+                <button type="submit" className="btn btn-primary mt-3">Log In</button>
             </form>
-            <Link to="/signup">Sign up</Link>
+            <div className="ms-1">
+                <Link to="/signup" className="">Sign up</Link>
+                <br />
+            </div>
         </div>
     )
 }

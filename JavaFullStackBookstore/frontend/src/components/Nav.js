@@ -1,29 +1,38 @@
+import { Link, useNavigate } from "react-router-dom";
 
-const Nav = () => {
-    return (
-  
-      <nav class="navbar navbar-expand-sm bg-light navbar-light">
-  
-    <a class="navbar-brand" href="#">Bookstore Inventory</a>
-    
-  
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" href="/">Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Services</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/signup/">Sign Up</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Contact Us</a>
-      </li>
-    </ul>
-  </nav>
-  
-          )
+const Nav = ({ setLoggedIn }) => {
+  const navigate = useNavigate();
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    setLoggedIn(null);
+    navigate("/");
   }
-  
-  export default Nav
+
+  return (
+
+    <nav className="navbar navbar-expand-xl navbar-dark header-nav">
+      <div className="container-fluid">
+        <ul className="navbar-nav ms-auto">
+          <li className="nav-item">
+            <Link className="nav-link" to="/">Home</Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link" to="/inventory">Inventory Management</Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link" to="#">Contact Us</Link>
+          </li>
+        </ul>
+        <ul className="navbar-nav ms-auto">
+          <li className="nav-item">
+            <button type="button" onClick={handleClick} className="btn btn-secondary btn-sm">Sign Out</button>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+  )
+}
+
+export default Nav

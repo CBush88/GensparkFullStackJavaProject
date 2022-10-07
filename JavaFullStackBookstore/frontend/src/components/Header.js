@@ -1,13 +1,14 @@
 import React from 'react'
-import { Link } from "react-router-dom"
 import Nav from './Nav'
+import Banner from './Banner'
 
-const Header = () => {
+const Header = ({ setLoggedIn, loggedIn }) => {
   return (
     <div>
-        <Nav />
+      {loggedIn ?
+        <Nav setLoggedIn={setLoggedIn} /> : <Banner />}
     </div>
   )
 }
 
-export default Header
+export default Header;

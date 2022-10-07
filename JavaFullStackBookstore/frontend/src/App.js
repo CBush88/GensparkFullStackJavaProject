@@ -8,9 +8,12 @@ import UpdateBook from './components/books/UpdateBook';
 import Header from './components/Header';
 import Footer from './components/Footer'
 import LoginForm from './components/login/LoginForm';
+import Home from "./components/Home";
 import { retrieveAllUsers } from './service/UsersDataService';
 import SignupForm from './components/login/SignupForm';
+import LandingPage from "./components/LandingPage";
 import bcrypt from "bcryptjs";
+import AltFooter from './components/AltFooter';
 
 const App = () => {
   const [books, setBooks] = useState([]);
@@ -54,13 +57,16 @@ const App = () => {
   if (!loggedIn) {
     return (
       <div className="App">
+        <Header loggedIn={loggedIn} />
         <div className="container">
-          <Header />
           <Routes>
-            <Route path="/" element={<LoginForm getUsers={getUsers} setUserAttempt={setUserAttempt} userAttempt={userAttempt} authenticate={authenticate} />} />
+            <Route exact path="/" element={<LandingPage getUsers={getUsers} setUserAttempt={setUserAttempt} userAttempt={userAttempt} authenticate={authenticate} />} />
+            <Route path="/login" element={<LoginForm getUsers={getUsers} setUserAttempt={setUserAttempt} userAttempt={userAttempt} authenticate={authenticate} />} />
             <Route path="/signup" element={<SignupForm getUsers={getUsers} />} />
           </Routes>
-          <Footer />
+          <div className="footer">
+            <Footer />
+          </div>
         </div>
       </div>
     )
@@ -68,14 +74,17 @@ const App = () => {
 
   return (
     <div className="App">
+      <Header setLoggedIn={setLoggedIn} loggedIn={loggedIn} />
       <div className="container">
-        <Header />
         <Routes>
-          <Route exact path="/" element={<BookInventory books={books} getBooks={getBooks} setBooks={setBooks} setBookToUpdate={setBookToUpdate} />} />
+          <Route exact path="/" element={<Home />} />
+          <Route path="/inventory" element={<BookInventory books={books} getBooks={getBooks} setBooks={setBooks} setBookToUpdate={setBookToUpdate} />} />
           <Route path="/add" element={<AddBook />} />
           <Route path="/update" element={<UpdateBook bookToUpdate={bookToUpdate} />} />
         </Routes>
-        <Footer />
+        <div className="footer">
+          <AltFooter />
+        </div>
       </div>
     </div>
   );

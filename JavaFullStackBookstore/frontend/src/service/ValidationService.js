@@ -1,4 +1,4 @@
-const validPassword = (() => {
+export const validPassword = () => {
 
     const passwordForValidation = document.getElementById("password").value
     const repeatPasswordForValidation = document.getElementById("repeatPassword").value
@@ -27,5 +27,36 @@ const validPassword = (() => {
       errLabel.textContent = "Must contain a number!"
     }
     return false;
-  })
-  export default validPassword
+  }
+
+  export const validGenre = () => {
+    const genre = document.getElementById("genre").value
+    const errLab = document.getElementById("errLabel")
+    const onlyLetters = /^[a-zA-Z]+$/.test(genre)
+
+    errLab.style = "display:hidden;"
+    errLab.textContent = ""
+
+    if(!onlyLetters){
+        errLab.style = "display:inline; color:red; font-weight:normal;"
+        errLab.textContent = "The genre should have no symbols or numbers!"
+        return false;
+    }
+    return true;
+  }
+
+  export const validPrice = () => {
+    const price = document.getElementById("price").value
+    const errLab = document.getElementById("errLabel")
+    const onlyNumbers = /^[0-9]+$/.test(price)
+
+    errLab.style = "display:hidden;"
+    errLab.textContent = ""
+
+    if(!onlyNumbers){
+        errLab.style = "display:inline; color:red; font-weight:normal;"
+        errLab.textContent = "The price should only contain numbers!"
+        return false;
+    }
+    return true;
+  }
